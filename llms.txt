@@ -1,0 +1,27 @@
+# solana-codemod
+
+> Automated migration from @solana/web3.js v1 to @solana/kit (v2). jscodeshift-based AST transforms. 6 transforms, 26 tests.
+
+## Usage
+
+Run all transforms: `npx solana-codemod ./src`
+Specific transform: `npx solana-codemod ./src -t public-key-to-address`
+Dry run: `npx solana-codemod ./src --dry`
+
+## Transforms
+
+1. `public-key-to-address` - new PublicKey("...") → address("..."), PublicKey type → Address
+2. `connection-to-rpc` - new Connection(url) → createSolanaRpc(url), appends .send() to RPC calls
+3. `keypair-to-signer` - Keypair.generate() → await generateKeyPairSigner(), auto-adds async
+4. `system-program-transfer` - SystemProgram.transfer → getTransferSolInstruction, renames props
+5. `transaction-to-pipe` - new Transaction() + .add() → pipe(createTransactionMessage(...))
+6. `rewrite-imports` - cleans up @solana/web3.js imports, deduplicates @solana/kit imports
+
+## Not covered (manual migration needed)
+
+VersionedTransaction, connection.sendTransaction(), subscription methods, BN to BigInt, Anchor IDL clients, @solana/spl-token v1 to v2.
+
+## Related
+
+- [bigint-buffer-safe](https://github.com/LoserLab/bigint-buffer-safe): Fix for CVE-2025-3194
+- [solana-audit](https://github.com/LoserLab/solana-audit): Dependency auditor
