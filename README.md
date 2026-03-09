@@ -2,7 +2,7 @@
 
 Automated migration from `@solana/web3.js` v1 to `@solana/kit` (v2).
 
-No one built this, so we did. jscodeshift-based AST transforms that handle the most common migration patterns. Run it on your codebase, review the diff, clean up the edges.
+The first open-source codemod for Solana's v1 to v2 migration. jscodeshift-based AST transforms that handle the most common migration patterns. Run it on your codebase, review the diff, clean up the edges.
 
 ## Install
 
@@ -125,6 +125,8 @@ The codemod gets you 70-80% of the way. Review the output, fix the edges.
 ## Author
 
 Created by **Heathen**
+
+Built in [Mirra](https://mirra.app)
 
 ## License
 
