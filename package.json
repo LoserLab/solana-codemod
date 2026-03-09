@@ -1,0 +1,52 @@
+{
+  "name": "solana-codemod",
+  "version": "0.1.0",
+  "description": "Automated migration from @solana/web3.js v1 to @solana/kit (v2)",
+  "bin": {
+    "solana-codemod": "./dist/bin/solana-codemod.js"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "tsc --noEmit"
+  },
+  "keywords": [
+    "solana",
+    "web3.js",
+    "codemod",
+    "migration",
+    "jscodeshift",
+    "solana-kit"
+  ],
+  "author": "heathen",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/loserlab/solana-codemod"
+  },
+  "dependencies": {
+    "commander": "^13.0.0",
+    "jscodeshift": "^17.1.2"
+  },
+  "devDependencies": {
+    "@types/jscodeshift": "^0.12.0",
+    "@types/node": "^22.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0",
+    "vitest": "^3.0.0"
+  }
+}
