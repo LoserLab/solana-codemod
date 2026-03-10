@@ -1,5 +1,9 @@
 # solana-codemod
 
+<p align="center">
+  <img src="social/heathen-codemod-card.png" alt="solana-codemod" width="100%">
+</p>
+
 Automated migration from `@solana/web3.js` v1 to `@solana/kit` (v2).
 
 The first open-source codemod for Solana's v1 to v2 migration. jscodeshift-based AST transforms that handle the most common migration patterns. Run it on your codebase, review the diff, clean up the edges.
@@ -121,6 +125,19 @@ The codemod gets you 70-80% of the way. Review the output, fix the edges.
 - Multiple CVEs in `elliptic`
 
 `@solana/kit` (v2) has zero third-party dependencies. No transitive vulnerabilities. The Solana Foundation also released [ConnectorKit](https://www.connectorkit.dev/) (`@solana/connector`) as the modern wallet adapter replacement.
+
+## Part of the Solana Migration Toolkit
+
+Four tools that work together to get your project from web3.js v1 to Kit v2:
+
+| Tool | What it does |
+|------|-------------|
+| [solana-deps](https://github.com/LoserLab/solana-deps) | Trace why legacy packages are in your tree |
+| [solana-audit](https://github.com/LoserLab/solana-audit) | Catch CVEs and deprecated APIs that `npm audit` misses |
+| **solana-codemod** (this tool) | Auto-migrate code from web3.js v1 to Kit v2 |
+| [bigint-buffer-safe](https://github.com/LoserLab/bigint-buffer-safe) | Drop-in CVE fix for bigint-buffer |
+
+**Recommended workflow:** `solana-deps` (find what's legacy) -> `solana-audit` (check for vulnerabilities) -> `solana-codemod` (fix the code) -> `solana-audit` (verify the result).
 
 ## Author
 
