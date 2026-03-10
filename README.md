@@ -141,7 +141,7 @@ Four tools that work together to get your project from web3.js v1 to Kit v2:
 
 ## Author
 
-Created by **Heathen**
+Created by [**Heathen**](https://x.com/heathenft)
 
 Built in [Mirra](https://mirra.app)
 
