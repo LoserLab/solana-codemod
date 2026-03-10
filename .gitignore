@@ -1,3 +1,5 @@
 node_modules/
 dist/
 *.tsbuildinfo
+social/*
+!social/heathen-codemod-card.png
